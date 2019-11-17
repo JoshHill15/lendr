@@ -23,6 +23,7 @@ const validate = ({ username, email, password, name, checkPassword }) => {
   if (!name) {
     errors.name = "you need to input a name!";
   }
+
   if (password !== checkPassword) {
     errors.checkPassword = "your passwords need to match";
   }
