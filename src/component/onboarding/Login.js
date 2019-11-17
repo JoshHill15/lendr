@@ -1,14 +1,13 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
-const validate = ({ name, email, password }) => {
-    
+const validate = ({ username, email, password, name }) => {
   const errors = {};
 
-  if (!name) {
-    errors.name = "You need to input a name!";
-  } else if (name.length < 3) {
-    errors.name = "You need a longer name!";
+  if (!username) {
+    errors.username = "You need to input a username!";
+  } else if (username.length < 3) {
+    errors.username = "You need a longer username!";
   }
 
   if (!email) {
@@ -21,19 +20,21 @@ const validate = ({ name, email, password }) => {
     errors.password = "You need a longer password!";
   }
 
+  if (!name) {
+    errors.name = "you need to input a name!";
+  } else if (name.length < 3) {
+  }
   return errors;
 };
 
-function OnBoarding() {
-
+function Login() {
   return (
     <Formik
-      initialValues={{ username: "", password: "" }}
+      initialValues={{ username: "", email: "", password: "", name: "" }}
       validate={validate}
       render={props => {
         return (
           <div>
-            <h1>Welcome to Lendr!</h1>
             <Form>
               <Field name="username" type="text" placeholder="Enter Username" />
               <ErrorMessage name="username" component="span" />
@@ -50,4 +51,4 @@ function OnBoarding() {
   );
 }
 
-export default OnBoarding;
+export default Login;
