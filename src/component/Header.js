@@ -3,16 +3,16 @@ import styled from "styled-components";
 import logo from "../Images/lendr_logo.png";
 
 const Header = () => {
-  const Container = styled.header`
+  const HeaderContainer = styled.header`
     display: flex;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.6);
   `;
 
   return (
-    <Container>
+    <HeaderContainer>
       <img src={logo} alt="Lendr Logo" />
-    </Container>
+    </HeaderContainer>
   );
 };
 export default Header;
