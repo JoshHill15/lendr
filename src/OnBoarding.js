@@ -1,8 +1,8 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import Header from "./component/Header";
 
 const validate = ({ name, email, password }) => {
-    
   const errors = {};
 
   if (!name) {
@@ -25,28 +25,38 @@ const validate = ({ name, email, password }) => {
 };
 
 function OnBoarding() {
-
   return (
-    <Formik
-      initialValues={{ username: "", password: "" }}
-      validate={validate}
-      render={props => {
-        return (
-          <div>
-            <h1>Welcome to Lendr!</h1>
-            <Form>
-              <Field name="username" type="text" placeholder="Enter Username" />
-              <ErrorMessage name="username" component="span" />
-              <br />
-              <Field name="password" type="text" placeholder="Enter password" />
-              <ErrorMessage name="password" component="span" />
-              <br />
-              <button type="submit">Login</button>
-            </Form>
-          </div>
-        );
-      }}
-    />
+    <>
+      <Header />
+      <Formik
+        initialValues={{ username: "", password: "" }}
+        validate={validate}
+        render={props => {
+          return (
+            <div>
+              <h1>Welcome to Lendr!</h1>
+              <Form>
+                <Field
+                  name="username"
+                  type="text"
+                  placeholder="Enter Username"
+                />
+                <ErrorMessage name="username" component="span" />
+                <br />
+                <Field
+                  name="password"
+                  type="text"
+                  placeholder="Enter password"
+                />
+                <ErrorMessage name="password" component="span" />
+                <br />
+                <button type="submit">Login</button>
+              </Form>
+            </div>
+          );
+        }}
+      />
+    </>
   );
 }
 
