@@ -6,7 +6,7 @@ const Header = () => {
   const HeaderContainer = styled.header`
     display: flex;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgb(63, 94, 251);
   `;
 
   return (

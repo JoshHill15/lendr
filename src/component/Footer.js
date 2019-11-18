@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Footer = () => {
   const Footer = styled.footer`
     text-align: center;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgb(63, 94, 251);
     padding: 1%;
   `;
   return (

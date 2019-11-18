@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import splashlogo from "../Images/flame-8.png";
 
 function Home(props) {
   const Splash = styled.section`
@@ -41,6 +42,7 @@ function Home(props) {
 
   return (
     <Splash>
+      <img alt="handshake logo" src={splashlogo} />
       <h1>Welcome to Lendr!</h1>
       <ButtonContainer>
         <Button onClick={routeToLogin}>Login</Button>
