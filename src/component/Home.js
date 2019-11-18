@@ -35,7 +35,7 @@ function Home(props) {
   `;
 
   const IMG = styled.img`
-    width: 65%;
+    width: 75%;
     height: auto;
   `;
 
