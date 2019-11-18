@@ -23,6 +23,18 @@ const validate = ({ name, item, borrowDate, dueDate }) => {
 
   return errors;
 };
+const Splash = styled.section`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(63, 94, 251);
+  background: linear-gradient(
+    90deg,
+    rgba(63, 94, 251, 1) 32%,
+    rgba(70, 250, 252, 1) 100%
+  );
+  height: 81vh;
+`;
 
 const SignUpContainer = styled.div`
   display: flex;
@@ -33,6 +45,7 @@ const SignUpContainer = styled.div`
   padding: 5%;
   border-radius: 7px;
   width: 30%;
+  background: rgba(153, 50, 204, 0.7);
 `;
 
 const Button = styled.button`
@@ -61,42 +74,52 @@ const AddItems = () => {
       validate={validate}
       render={props => {
         return (
-          <LargeContainer>
-            <SignUpContainer>
-              <Form>
-                <Field
-                  name="name"
-                  type="text"
-                  placeholder="Borrower / Lender"
-                />
-                <ErrorMessage className="error" name="name" component="span" />
-                <Field name="item" type="text" placeholder="Enter Item" />
-                <ErrorMessage className="error" name="item" component="span" />
-                <label name="lend">lend:</label>
-                <Field name="lend" type="checkbox" />
-                <label name="borrow">borrow:</label>
-                <Field name="borrow" type="checkbox" />
-                <Field
-                  name="borrowDate"
-                  type="date"
-                  placeholder="Borrow Date"
-                />
-                <ErrorMessage
-                  className="error"
-                  name="borrowDate"
-                  component="span"
-                />
-                <Field name="dueDate" type="date" placeholder="Due Date" />
-                <ErrorMessage
-                  className="error"
-                  name="dueDate"
-                  component="span"
-                />
-                <Button type="submit">Add Item</Button>
-                <Button type="reset">Reset</Button>
-              </Form>
-            </SignUpContainer>
-          </LargeContainer>
+          <Splash>
+            <LargeContainer>
+              <SignUpContainer>
+                <Form>
+                  <Field
+                    name="name"
+                    type="text"
+                    placeholder="Borrower / Lender"
+                  />
+                  <ErrorMessage
+                    className="error"
+                    name="name"
+                    component="span"
+                  />
+                  <Field name="item" type="text" placeholder="Enter Item" />
+                  <ErrorMessage
+                    className="error"
+                    name="item"
+                    component="span"
+                  />
+                  <label name="lend">lend:</label>
+                  <Field name="lend" type="checkbox" />
+                  <label name="borrow">borrow:</label>
+                  <Field name="borrow" type="checkbox" />
+                  <Field
+                    name="borrowDate"
+                    type="date"
+                    placeholder="Borrow Date"
+                  />
+                  <ErrorMessage
+                    className="error"
+                    name="borrowDate"
+                    component="span"
+                  />
+                  <Field name="dueDate" type="date" placeholder="Due Date" />
+                  <ErrorMessage
+                    className="error"
+                    name="dueDate"
+                    component="span"
+                  />
+                  <Button type="submit">Add Item</Button>
+                  <Button type="reset">Reset</Button>
+                </Form>
+              </SignUpContainer>
+            </LargeContainer>
+          </Splash>
         );
       }}
     />

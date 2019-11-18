@@ -7,7 +7,7 @@ import AddItems from "./AddItems";
 
 function Dashboard(props) {
   const [item, setItem] = useState([]);
-  console.log(item);
+
   const BigC = styled.div`
     display: flex;
   `;
@@ -26,11 +26,20 @@ function Dashboard(props) {
 
   const Dash = styled.div`
     width: 30%;
-    height: 600px;
-    background: lightgray;
+    height: 80vh;
+    background: lightblue;
+    padding-top: 3%;
   `;
+
+  const DashImg = styled.img`
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    padding-bottom: 2%;
+  `;
+
   const routeToAddItems = () => {
-    props.history.push("/dashboard/additems");
+    props.history.push("/additems");
   };
 
   useEffect(() => {
@@ -45,7 +54,10 @@ function Dashboard(props) {
       <section>
         <BigC>
           <Dash>
-            <img src="" alt="profile img" />
+            <DashImg
+              src="https://source.unsplash.com/random"
+              alt="profile img"
+            />
             <h3> Welcome back, NAME</h3>
             <p>username</p>
           </Dash>

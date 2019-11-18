@@ -2,6 +2,7 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import styled from "styled-components";
 import "../../App.css";
+import Login from "./Login";
 
 const validate = ({ username, email, password, name, checkPassword }) => {
   const errors = {};
@@ -51,9 +52,10 @@ function OnBoarding() {
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    box-shadow: 10px 10px 28px -12px rgba(0, 0, 0, 0.75);
     padding: 5%;
     border-radius: 7px;
+    background: rgba(153, 50, 204, 0.7);
+    box-shadow: 10px 10px 28px -12px rgba(0, 0, 0, 0.75);
     width: 30%;
   `;
 

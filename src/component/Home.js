@@ -23,7 +23,6 @@ function Home(props) {
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    box-shadow: 10px 10px 28px -12px rgba(0, 0, 0, 0.75);
     padding: 5%;
     border-radius: 7px;
   `;

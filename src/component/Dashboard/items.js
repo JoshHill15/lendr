@@ -13,6 +13,16 @@ function Items(props) {
     lend
   } = props.item;
 
+  let Borrowed;
+  if (borrowed === true) {
+    Borrowed = <p>Borrowed</p>;
+  }
+
+  let Lend;
+  if (lend === true) {
+    Lend = <p>Lent</p>;
+  }
+
   const Container = styled.div`
     display: flex;
     justify-content: space-evenly;
@@ -28,16 +38,18 @@ function Items(props) {
     height: 100px;
     border-radius: 100%;
   `;
-
-  let Borrowed;
-  if (borrowed === true) {
-    Borrowed = <p>Borrowed</p>;
-  }
-
-  let Lend;
-  if (lend === true) {
-    Lend = <p>Lent</p>;
-  }
+  const Edit = styled.button`
+    background: green;
+    color: white;
+    border-radius: 4px;
+    border: none;
+  `;
+  const Delete = styled.button`
+    background: red;
+    color: white;
+    border-radius: 4px;
+    border: none;
+  `;
 
   return (
     <Container>
@@ -48,6 +60,8 @@ function Items(props) {
       <p>{item}</p>
       <p>{borrowDate}</p>
       <p>{dueDate}</p>
+      <Edit>edit</Edit>
+      <Delete>delete</Delete>
     </Container>
   );
 }

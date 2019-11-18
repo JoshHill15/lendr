@@ -15,10 +15,7 @@ function App() {
       <Route exact path="/" render={props => <Home {...props} />} />
       <Route path="/signup" component={SignUp} />
       <Route path="/dashboard" render={props => <Dashboard {...props} />} />
-      <Route
-        path="dashboard/additems"
-        render={props => <AddItems {...props} />}
-      />
+      <Route path="/additems" render={props => <AddItems {...props} />} />
       <Footer />
     </div>
   );
