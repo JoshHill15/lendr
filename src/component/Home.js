@@ -9,7 +9,6 @@ function Home(props) {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
     background: rgb(63, 94, 251);
     background: linear-gradient(
       90deg,
@@ -19,18 +18,25 @@ function Home(props) {
     height: 81vh;
   `;
 
-  const ButtonContainer = styled.div`
+  const LoginContainer = styled.div`
     display: flex;
-    flex-direction: row;
-    width: 25%;
+    flex-direction: column;
     align-items: center;
     justify-content: space-around;
+    box-shadow: 10px 10px 28px -12px rgba(0, 0, 0, 0.75);
+    padding: 5%;
+    border-radius: 7px;
   `;
 
   const LogoContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+  `;
+
+  const IMG = styled.img`
+    width: 65%;
+    height: auto;
   `;
 
   const Button = styled.button`
@@ -47,14 +53,13 @@ function Home(props) {
 
   return (
     <Splash>
-      <h1>Welcome to Lendr!</h1>
       <LogoContainer>
-        <img alt="handshake logo" src={splashlogo} />
+        <IMG alt="handshake logo" src={splashlogo} />
       </LogoContainer>
-      <ButtonContainer>
+      <LoginContainer>
         <Route path="/" render={props => <Login {...props} />} />
         <Button onClick={routeToSignUp}>Sign Up</Button>
-      </ButtonContainer>
+      </LoginContainer>
     </Splash>
   );
 }

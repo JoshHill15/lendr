@@ -7,11 +7,17 @@ const Header = () => {
     display: flex;
     justify-content: center;
     background: rgb(63, 94, 251);
+    padding: 0;
+  `;
+
+  const IMG = styled.img`
+    width: 15%;
+    height: auto;
   `;
 
   return (
     <HeaderContainer>
-      <img src={logo} alt="Lendr Logo" />
+      <IMG src={logo} alt="Lendr Logo" />
     </HeaderContainer>
   );
 };

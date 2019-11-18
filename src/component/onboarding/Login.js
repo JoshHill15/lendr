@@ -1,31 +1,36 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import styled from "styled-components";
+import "../../App.css";
 
-const validate = ({ username, email, password, name }) => {
+const validate = ({ username, password }) => {
   const errors = {};
 
   if (!username) {
-    errors.username = "You need to input a username!";
+    errors.username = alert("You need to input a username!");
   } else if (username.length < 3) {
-    errors.username = "You need a longer username!";
-  }
-
-  if (!email) {
-    errors.email = "You need to input a email!";
+    errors.username = alert("You need a longer username!");
   }
 
   if (!password) {
-    errors.password = "You need to input a password!";
+    errors.password = alert("You need to input a password!");
   } else if (password.length < 7) {
-    errors.password = "You need a longer password!";
+    errors.password = alert("You need a longer password!");
   }
 
-  if (!name) {
-    errors.name = "you need to input a name!";
-  } else if (name.length < 3) {
-  }
   return errors;
 };
+
+const LoginC = styled.div`
+  height: 150px;
+  width:320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content center;
+  background: lavender;
+  opacity: .8;
+`;
 
 function Login() {
   return (
@@ -34,17 +39,18 @@ function Login() {
       validate={validate}
       render={props => {
         return (
-          <div>
+          <LoginC>
             <Form>
+              <ErrorMessage className="error" name="username" component="div" />
               <Field name="username" type="text" placeholder="Enter Username" />
-              <ErrorMessage name="username" component="span" />
               <br />
               <Field name="password" type="text" placeholder="Enter password" />
-              <ErrorMessage name="password" component="span" />
+              <ErrorMessage className="error" name="password" component="div" />
+              <br />
               <br />
               <button type="submit">Login</button>
             </Form>
-          </div>
+          </LoginC>
         );
       }}
     />
