@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Items from "./items";
 import Profile from "./Profile";
 import { tsConstructorType } from "@babel/types";
+import TopBar from "./TopBar";
 
 function Dashboard(props) {
   const [item, setItem] = useState();
@@ -15,13 +16,9 @@ function Dashboard(props) {
 
   const ItemContainer = styled.div`
     display: flex;
-    width: 69%;
+    width: 82%;
     flex-direction: column;
   `;
-
-  const routeToAddItems = () => {
-    props.history.push("/additems");
-  };
 
   useEffect(() => {
     axios
@@ -33,10 +30,11 @@ function Dashboard(props) {
   return (
     <>
       <section>
+        <TopBar props={props} />
         <BigC>
           <Profile />
           <ItemContainer>
-            <button onClick={routeToAddItems}>Add Item</button>
+            {/* <button onClick={routeToAddItems}>Add Item</button> */}
             {item === undefined ? (
               <p>Add item to continue...</p>
             ) : (
