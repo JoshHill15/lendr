@@ -1,27 +1,41 @@
 import React from "react";
 import styled from "styled-components";
+import splashlogo from "../Images/flame-8.png";
+import { Route } from "react-router-dom";
+import Login from "./onboarding/Login";
 
 function Home(props) {
   const Splash = styled.section`
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
     background: rgb(63, 94, 251);
     background: linear-gradient(
       90deg,
       rgba(63, 94, 251, 1) 32%,
       rgba(70, 250, 252, 1) 100%
     );
-    height: 81vh;
+    height: 88vh;
   `;
 
-  const ButtonContainer = styled.div`
+  const LoginContainer = styled.div`
     display: flex;
-    flex-direction: row;
-    width: 25%;
+    flex-direction: column;
     align-items: center;
     justify-content: space-around;
+    padding: 5%;
+    border-radius: 7px;
+  `;
+
+  const LogoContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  `;
+
+  const IMG = styled.img`
+    width: 65%;
+    height: auto;
   `;
 
   const Button = styled.button`
@@ -32,20 +46,19 @@ function Home(props) {
     box-shadow: 10px 10px 28px -12px rgba(0, 0, 0, 0.75);
   `;
 
-  const routeToLogin = () => {
-    props.history.push("./login");
-  };
   const routeToSignUp = () => {
-    props.history.push("./signup");
+    props.history.push("/signup");
   };
 
   return (
     <Splash>
-      <h1>Welcome to Lendr!</h1>
-      <ButtonContainer>
-        <Button onClick={routeToLogin}>Login</Button>
+      <LogoContainer>
+        <IMG alt="handshake logo" src={splashlogo} />
+      </LogoContainer>
+      <LoginContainer>
+        <Route path="/" render={props => <Login {...props} />} />
         <Button onClick={routeToSignUp}>Sign Up</Button>
-      </ButtonContainer>
+      </LoginContainer>
     </Splash>
   );
 }

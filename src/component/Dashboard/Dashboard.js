@@ -1,44 +1,49 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Route } from "react-router-dom";
+import axios from "axios";
 import styled from "styled-components";
 import Items from "./items";
-import AddItems from "./AddItems";
+import Profile from "./Profile";
+import { tsConstructorType } from "@babel/types";
 
 function Dashboard(props) {
+  const [item, setItem] = useState();
+
+  const BigC = styled.div`
+    display: flex;
+  `;
+
   const ItemContainer = styled.div`
     display: flex;
-    width: 100%;
+    width: 69%;
     flex-direction: column;
   `;
 
-  const Container = styled.div`
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-  `;
-
   const routeToAddItems = () => {
-    props.history.push("/dashboard/additems");
+    props.history.push("/additems");
   };
 
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/api/items")
+      .then(res => setItem(res.data))
+      .catch(err => console.log(`HOLD ON `, err));
+  }, []);
+  console.table(item);
   return (
     <>
       <section>
-        <h3> Welcome back, NAME</h3>
-        <ItemContainer>
-          <Container>
-            <p>item was lent out to borrower, from lender</p>
-            <p>item img</p>
-            <p>item: item</p>
-            <p>when its due</p>
-          </Container>
-          <Items />
-        </ItemContainer>
-        <button onClick={routeToAddItems}>Add Item</button>
-        <Route
-          path="/dashboard/additems"
-          render={props => <AddItems {...props} />}
-        />
+        <BigC>
+          <Profile />
+          <ItemContainer>
+            <button onClick={routeToAddItems}>Add Item</button>
+            {item === undefined ? (
+              <p>Add item to continue...</p>
+            ) : (
+              item.map(i => <Items key={i.id} item={i} />)
+            )}
+          </ItemContainer>
+        </BigC>
       </section>
     </>
   );
