@@ -66,9 +66,10 @@ const LargeContainer = styled.div`
 const AddItems = () => {
   useEffect(() => {
     gsap.to(FormRef, {
-      duration: 2,
-      scale: 1.5,
-      ease: "bounce"
+      duration: 3,
+      scale: 1.3,
+      ease: "bounce",
+      ease: "back"
     });
   }, []);
 

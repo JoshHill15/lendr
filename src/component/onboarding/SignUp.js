@@ -74,7 +74,7 @@ function OnBoarding() {
     gsap.to(FormElement, {
       duration: 5,
       scale: 1.1,
-      ease: "elastic"
+      ease: "elastic(1)"
     });
   }, []);
 
