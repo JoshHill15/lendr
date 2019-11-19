@@ -15,12 +15,12 @@ function Items(props) {
 
   let Borrowed;
   if (borrowed === true) {
-    Borrowed = <p>Borrowed</p>;
+    Borrowed = <p>Borrowed item:</p>;
   }
 
   let Lend;
   if (lend === true) {
-    Lend = <p>Lent</p>;
+    Lend = <p>Lent item:</p>;
   }
 
   const Container = styled.div`
@@ -43,12 +43,20 @@ function Items(props) {
     color: white;
     border-radius: 4px;
     border: none;
+    &:hover {
+      color: green;
+      background: rgba(0, 0, 0, 0.3);
+    }
   `;
   const Delete = styled.button`
     background: red;
     color: white;
     border-radius: 4px;
     border: none;
+    &:hover {
+      color: red;
+      background: rgba(0, 0, 0, 0.3);
+    }
   `;
 
   return (

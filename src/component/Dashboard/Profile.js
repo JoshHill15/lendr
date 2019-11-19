@@ -3,15 +3,15 @@ import styled from "styled-components";
 
 const Profile = () => {
   const Dash = styled.div`
-    width: 30%;
+    width: 150px;
     height: 100vh;
     background: lightblue;
     padding-top: 3%;
   `;
 
   const DashImg = styled.img`
-    width: 100px;
-    height: 100px;
+    width: 125px;
+    height: 125px;
     border-radius: 100%;
     padding-bottom: 2%;
   `;
@@ -19,8 +19,7 @@ const Profile = () => {
   return (
     <Dash>
       <DashImg src="https://source.unsplash.com/random" alt="profile img" />
-      <h3> Welcome back, NAME</h3>
-      <p>username</p>
+      <h3>NAME</h3>
     </Dash>
   );
 };
