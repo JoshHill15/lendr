@@ -22,8 +22,8 @@ const validate = ({ username, password }) => {
 };
 
 const LoginC = styled.div`
-  height: 250px;
-  width:320px;
+  height: 300px;
+  width: 360px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -54,7 +54,7 @@ function Login() {
             <Form>
               <Field name="username" type="text" placeholder="Enter Username" />
               <ErrorMessage className="error" name="username" component="div" />
-              <Field name="password" type="text" placeholder="Enter password" />
+              <Field name="password" type="text" placeholder="Enter Password" />
               <ErrorMessage className="error" name="password" component="div" />
               <br />
               <Button type="submit">Login</Button>

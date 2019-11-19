@@ -15,7 +15,7 @@ function Home(props) {
       rgba(63, 94, 251, 1) 32%,
       rgba(70, 250, 252, 1) 100%
     );
-    height: 87vh;
+    height: 88vh;
   `;
 
   const LoginContainer = styled.div`
@@ -34,7 +34,7 @@ function Home(props) {
   `;
 
   const IMG = styled.img`
-    width: 75%;
+    width: 65%;
     height: auto;
   `;
 
@@ -47,7 +47,7 @@ function Home(props) {
   `;
 
   const routeToSignUp = () => {
-    props.history.push("./signup");
+    props.history.push("/signup");
   };
 
   return (

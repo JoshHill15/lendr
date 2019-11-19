@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const FETCH_ITEM_START = "FETCH_ITEM_START";
 export const FETCH_ITEM_SUCCESS = "FETCH_ITEM_SUCCESS";
-export const FETCH_ITEM_FAILURE = "FETCH_ITEM_FAIURE";
+export const FETCH_ITEM_FAILURE = "FETCH_ITEM_FAILURE";
 
 export const POST_ITEM_START = "POST_ITEM_START";
 export const POST_ITEM_SUCCESS = "POST_ITEM_SUCCESS";

@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import styled from "styled-components";
 import "../../App.js";
+import { gsap } from "gsap";
 const validate = ({ name, item, borrowDate, dueDate }) => {
   const errors = {};
 
@@ -33,7 +34,7 @@ const Splash = styled.section`
     rgba(63, 94, 251, 1) 32%,
     rgba(70, 250, 252, 1) 100%
   );
-  height: 81vh;
+  height: 100vh;
 `;
 
 const SignUpContainer = styled.div`
@@ -63,6 +64,15 @@ const LargeContainer = styled.div`
 `;
 
 const AddItems = () => {
+  useEffect(() => {
+    gsap.to(FormRef, {
+      duration: 2,
+      scale: 1.5,
+      ease: "bounce"
+    });
+  }, []);
+
+  let FormRef = useRef(null);
   return (
     <Formik
       initialValues={{
@@ -76,7 +86,7 @@ const AddItems = () => {
         return (
           <Splash>
             <LargeContainer>
-              <SignUpContainer>
+              <SignUpContainer ref={e => (FormRef = e)}>
                 <Form>
                   <Field
                     name="name"

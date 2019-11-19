@@ -2,7 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import logo from "../Images/Lendr_logo_white.png";
 
-const Header = () => {
+const Header = props => {
+  const routeToHome = () => {
+    props.history.push("/");
+  };
+
   const HeaderContainer = styled.header`
     display: flex;
     justify-content: center;
@@ -22,7 +26,7 @@ const Header = () => {
 
   return (
     <HeaderContainer>
-      <IMG src={logo} alt="Lendr Logo" />
+      <IMG src={logo} alt="Lendr Logo" onClick={routeToHome} />
     </HeaderContainer>
   );
 };

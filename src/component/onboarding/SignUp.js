@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import styled from "styled-components";
 import "../../App.css";
-import Login from "./Login";
+import { gsap } from "gsap/all";
 
 const validate = ({ username, email, password, name, checkPassword }) => {
   const errors = {};
@@ -24,16 +24,18 @@ const validate = ({ username, email, password, name, checkPassword }) => {
   }
 
   if (!name) {
-    errors.name = "you need to input a name!";
+    errors.name = "You need to input a name!";
   }
 
   if (password !== checkPassword) {
-    errors.checkPassword = "your passwords need to match";
+    errors.checkPassword = "Your passwords need to match";
   }
   return errors;
 };
 
 function OnBoarding() {
+  let FormElement = useRef(null);
+
   const Container = styled.section`
     display: flex;
     align-items: center;
@@ -44,7 +46,7 @@ function OnBoarding() {
       rgba(63, 94, 251, 1) 32%,
       rgba(70, 250, 252, 1) 100%
     );
-    height: 81vh;
+    height: 88vh;
   `;
 
   const SignUpContainer = styled.div`
@@ -52,11 +54,12 @@ function OnBoarding() {
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    padding: 5%;
+    padding: 3%;
     border-radius: 7px;
     background: rgba(153, 50, 204, 0.7);
     box-shadow: 10px 10px 28px -12px rgba(0, 0, 0, 0.75);
-    width: 30%;
+    width: 25%;
+    height: auto;
   `;
 
   const Button = styled.button`
@@ -66,6 +69,14 @@ function OnBoarding() {
     padding: 10px 25px;
     box-shadow: 10px 10px 28px -12px rgba(0, 0, 0, 0.75);
   `;
+
+  useEffect(() => {
+    gsap.to(FormElement, {
+      duration: 5,
+      scale: 1.1,
+      ease: "elastic"
+    });
+  }, []);
 
   return (
     <Formik
@@ -80,10 +91,15 @@ function OnBoarding() {
       render={props => {
         return (
           <Container>
-            <SignUpContainer>
+            <SignUpContainer
+              ref={element => {
+                FormElement = element;
+              }}
+            >
+              <h3>Sign Up</h3>
               <Form>
                 <Field name="name" type="text" placeholder="Enter Your Name" />
-                <ErrorMessage className="error" name="name" component="span" />
+                <ErrorMessage className="error" name="name" component="div" />
 
                 <Field
                   name="username"
@@ -93,11 +109,11 @@ function OnBoarding() {
                 <ErrorMessage
                   className="error"
                   name="username"
-                  component="span"
+                  component="div"
                 />
 
                 <Field name="email" type="email" placeholder="Enter Email" />
-                <ErrorMessage className="error" name="email" component="span" />
+                <ErrorMessage className="error" name="email" component="div" />
 
                 <Field
                   name="password"
@@ -107,7 +123,7 @@ function OnBoarding() {
                 <ErrorMessage
                   className="error"
                   name="password"
-                  component="span"
+                  component="div"
                 />
 
                 <Field
@@ -118,7 +134,7 @@ function OnBoarding() {
                 <ErrorMessage
                   className="error"
                   name="checkPassword"
-                  component="span"
+                  component="div"
                 />
                 <br />
                 <Button type="submit">Sign Up</Button>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Home from "./component/Home";
 import Header from "./component/Header";
@@ -11,11 +11,15 @@ import AddItems from "./component/Dashboard/AddItems";
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Route exact path="/" render={props => <Home {...props} />} />
-      <Route path="/signup" component={SignUp} />
-      <Route path="/dashboard" render={props => <Dashboard {...props} />} />
-      <Route path="/additems" render={props => <AddItems {...props} />} />
+      <Route path="/" render={props => <Header {...props} />} />
+      <Router>
+        <Switch>
+          <Route exact path="/" render={props => <Home {...props} />} />
+          <Route path="/signup" component={SignUp} />
+          <Route path="/dashboard" render={props => <Dashboard {...props} />} />
+          <Route path="/additems" render={props => <AddItems {...props} />} />
+        </Switch>
+      </Router>
       <Footer />
     </div>
   );
