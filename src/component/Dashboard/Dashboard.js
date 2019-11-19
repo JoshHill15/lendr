@@ -26,7 +26,7 @@ function Dashboard(props) {
 
   const Dash = styled.div`
     width: 30%;
-    height: 80vh;
+    height: 87vh;
     background: lightblue;
     padding-top: 3%;
   `;

@@ -15,7 +15,7 @@ function Home(props) {
       rgba(63, 94, 251, 1) 32%,
       rgba(70, 250, 252, 1) 100%
     );
-    height: 81vh;
+    height: 87vh;
   `;
 
   const LoginContainer = styled.div`

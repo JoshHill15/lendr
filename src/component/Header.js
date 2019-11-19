@@ -1,18 +1,23 @@
 import React from "react";
 import styled from "styled-components";
-import logo from "../Images/lendr_logo.png";
+import logo from "../Images/Lendr_logo_white.png";
 
 const Header = () => {
   const HeaderContainer = styled.header`
     display: flex;
     justify-content: center;
-    background: rgb(63, 94, 251);
+    align-items: center;
+    ${"" /* background: rgb(63, 94, 251); */}
+    background: rgba(0,0,0,0.8);
     padding: 0;
+    height: 100px;
   `;
 
   const IMG = styled.img`
-    width: 15%;
-    height: auto;
+    width: auto;
+    height: 160%;
+    margin: 0;
+    padding: 0;
   `;
 
   return (
