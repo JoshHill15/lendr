@@ -36,6 +36,7 @@ const TopBar = props => {
       <img src={alert} alt="notification icon" />
       <img src={setting} alt="setting icon" />
       <img src={help} alt="help icon" />
+      <Button>Sign Out</Button>
     </TopContainer>
   );
 };
