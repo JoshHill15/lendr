@@ -1,8 +1,10 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import axios from "axios";
 import styled from "styled-components";
 import "../../App.css";
 import { gsap } from "gsap/all";
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 import Header from "../Header";
 
 const validate = ({ username, email, password, name, checkPassword }) => {
@@ -34,7 +36,35 @@ const validate = ({ username, email, password, name, checkPassword }) => {
   return errors;
 };
 
-function OnBoarding() {
+const OnBoarding = (props) => {
+  const [newUser, setNewUser] = useState({
+    username: '',
+    password: '',
+    email: ''
+
+  })
+  const handleInput = e => {
+    setNewUser({
+      ...newUser,
+      [e.target.name]: e.target.value,
+    })
+  }
+  const handleSubmit = e => {
+    // e.preventDefault();
+    axios
+      .post('https://zero5nelsonm-lendr.herokuapp.com/createnewuser', {
+        username: newUser.name,
+        email: newUser.email,
+        password: newUser.password
+      })
+      .then(response => {
+        console.log(response)
+        props.history.push('/dasboard')
+      })
+      .catch(error => {
+        console.log(error.response)
+      })
+  }
   let FormElement = useRef(null);
 
   const Container = styled.section`
@@ -81,82 +111,154 @@ function OnBoarding() {
 
   return (
     <>
-      <Header />
-      <Formik
-        initialValues={{
-          username: "",
-          email: "",
-          password: "",
-          name: "",
-          checkPassword: ""
-        }}
-        validate={validate}
-        render={props => {
-          return (
-            <Container>
-              <SignUpContainer
-                ref={element => {
-                  FormElement = element;
-                }}
-              >
-                <h3>Sign Up</h3>
-                <Form>
-                  <Field
-                    name="name"
-                    type="text"
-                    placeholder="Enter Your Name"
-                  />
-                  <ErrorMessage className="error" name="name" component="div" />
+    <Header />
+    <Formik
+      onSubmit={handleSubmit}
+      initialValues={{
+        username: "",
+        email: "",
+        password: "",
+        name: "",
+        checkPassword: ""
+      }}
+      validate={validate}
+      render={props => {
+        return (
+          <Container>
+            <SignUpContainer
+              ref={element => {
+                FormElement = element;
+              }}
+            >
+              <h3>Sign Up</h3>
+              <Form>
+                <Field name="name" type="text" placeholder="Enter Your Name" onchange={handleInput} />
+                <ErrorMessage className="error" name="name" component="div" />
 
-                  <Field
-                    name="username"
-                    type="text"
-                    placeholder="Enter Username"
-                  />
-                  <ErrorMessage
-                    className="error"
-                    name="username"
-                    component="div"
-                  />
+                <Field
+                  name="username"
+                  type="text"
+                  placeholder="Enter Username"
+                  onchange={handleInput}
+                />
+                <ErrorMessage
+                  className="error"
+                  name="username"
+                  component="div"
+                />
 
-                  <Field name="email" type="email" placeholder="Enter Email" />
-                  <ErrorMessage
-                    className="error"
-                    name="email"
-                    component="div"
-                  />
+                <Field name="email" type="email" placeholder="Enter Email" onchange={handleInput} />
+                <ErrorMessage className="error" name="email" component="div" />
 
-                  <Field
-                    name="password"
-                    type="password"
-                    placeholder="Enter password"
-                  />
-                  <ErrorMessage
-                    className="error"
-                    name="password"
-                    component="div"
-                  />
+                <Field
+                  name="password"
+                  type="password"
+                  placeholder="Enter password"
+                  onchange={handleInput}
+                />
+                <ErrorMessage
+                  className="error"
+                  name="password"
+                  component="div"
+                />
 
-                  <Field
-                    name="checkPassword"
-                    type="password"
-                    placeholder="Check password"
-                  />
-                  <ErrorMessage
-                    className="error"
-                    name="checkPassword"
-                    component="div"
-                  />
-                  <br />
-                  <Button type="submit">Sign Up</Button>
-                  <Button type="reset">Reset</Button>
-                </Form>
-              </SignUpContainer>
-            </Container>
-          );
-        }}
-      />
-    </>
+                <Field
+                  name="checkPassword"
+                  type="password"
+                  placeholder="Check password"
+                />
+                <ErrorMessage
+                  className="error"
+                  name="checkPassword"
+                  component="div"
+                />
+                <br />
+                <Button type="submit">Sign Up</Button>
+                <Button type="reset">Reset</Button>
+              </Form>
+            </SignUpContainer>
+          </Container>
+        );
+      }}
+    />
+</>
+//     <>
+//       <Header />
+//       <Formik
+//         initialValues={{
+//           username: "",
+//           email: "",
+//           password: "",
+//           name: "",
+//           checkPassword: ""
+//         }}
+//         validate={validate}
+//         render={props => {
+//           return (
+//             <Container>
+//               <SignUpContainer
+//                 ref={element => {
+//                   FormElement = element;
+//                 }}
+//               >
+//                 <h3>Sign Up</h3>
+//                 <Form>
+//                   <Field
+//                     name="name"
+//                     type="text"
+//                     placeholder="Enter Your Name"
+//                   />
+//                   <ErrorMessage className="error" name="name" component="div" />
+
+//                   <Field
+//                     name="username"
+//                     type="text"
+//                     placeholder="Enter Username"
+//                   />
+//                   <ErrorMessage
+//                     className="error"
+//                     name="username"
+//                     component="div"
+//                   />
+
+//                   <Field name="email" type="email" placeholder="Enter Email" />
+//                   <ErrorMessage
+//                     className="error"
+//                     name="email"
+//                     component="div"
+//                   />
+
+//                   <Field
+//                     name="password"
+//                     type="password"
+//                     placeholder="Enter password"
+//                   />
+//                   <ErrorMessage
+//                     className="error"
+//                     name="password"
+//                     component="div"
+//                   />
+
+//                   <Field
+//                     name="checkPassword"
+//                     type="password"
+//                     placeholder="Check password"
+//                   />
+//                   <ErrorMessage
+//                     className="error"
+//                     name="checkPassword"
+//                     component="div"
+//                   />
+//                   <br />
+//                   <Button type="submit">Sign Up</Button>
+//                   <Button type="reset">Reset</Button>
+//                 </Form>
+//               </SignUpContainer>
+//             </Container>
+//           );
+//         }}
+//       />
+//     </>
   );
 }
 

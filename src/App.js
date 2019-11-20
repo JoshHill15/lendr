@@ -4,7 +4,7 @@ import "./App.css";
 import Home from "./component/Home";
 import Header from "./component/Header";
 import Footer from "./component/Footer";
-import SignUp from "./component/onboarding/SignUp";
+import SignUp2 from "./component/onboarding/SignUp2";
 import Dashboard from "./component/Dashboard/Dashboard";
 import AddItems from "./component/Dashboard/AddItems";
 
@@ -14,7 +14,7 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" render={props => <Home {...props} />} />
-          <Route path="/signup" component={SignUp} />
+          <Route path="/signup" component={SignUp2} />
           <Route path="/dashboard" render={props => <Dashboard {...props} />} />
           <Route path="/additems" render={props => <AddItems {...props} />} />
         </Switch>

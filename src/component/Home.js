@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import splashlogo from "../Images/flame-8.png";
 import { Route } from "react-router-dom";
+import Login2 from "./onboarding/Login2";
 import Login from "./onboarding/Login";
 import Header from "./Header";
 
@@ -53,17 +54,29 @@ function Home(props) {
 
   return (
     <>
-      <Header />
-      <Splash>
-        <LogoContainer>
-          <IMG alt="handshake logo" src={splashlogo} />
-        </LogoContainer>
-        <LoginContainer>
-          <Route path="/" render={props => <Login {...props} />} />
-          <Button onClick={routeToSignUp}>Sign Up</Button>
-        </LoginContainer>
-      </Splash>
+     <Header />
+    <Splash>
+      <LogoContainer>
+        <IMG alt="handshake logo" src={splashlogo} />
+      </LogoContainer>
+      <LoginContainer>
+        <Route path="/" render={props => <Login2 {...props} />} />
+        <Button onClick={routeToSignUp}>Sign Up</Button>
+      </LoginContainer>
+    </Splash>
     </>
+//     <>
+//       <Header />
+//       <Splash>
+//         <LogoContainer>
+//           <IMG alt="handshake logo" src={splashlogo} />
+//         </LogoContainer>
+//         <LoginContainer>
+//           <Route path="/" render={props => <Login {...props} />} />
+//           <Button onClick={routeToSignUp}>Sign Up</Button>
+//         </LoginContainer>
+//       </Splash>
+//     </>
   );
 }
 
