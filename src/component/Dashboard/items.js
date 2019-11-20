@@ -24,7 +24,7 @@ function Items(props) {
     Lend = <p>Lent item:</p>;
   }
 
-  const Container = styled.div`
+  const Container = styled.form`
     display: flex;
     justify-content: space-evenly;
     width: 100%;
@@ -64,7 +64,7 @@ function Items(props) {
   `;
 
   return (
-    <Container>
+    <Container id="foo">
       {Borrowed}
       {Lend}
       <IMG src={image} alt="img" />
