@@ -17,20 +17,24 @@ const Login2 = (props) => {
     const handleSubmit = e => {
         e.preventDefault();
         axios
-            .post('https://zero5nelsonm-lendr.herokuapp.com/login', 'grant_type=password&username=${data.username}&password=${data.password}', {
-                headers: {
-                    //btoa is converting our client/id secret to base 64 - required for oath2
-                    Authorization: `Basic ${btoa('waZnYSi644XEABsBiNX9gcf8:NGyHSSzpj3rJaNSD9eFK98F')}`,
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                }
-            })
+            .post('https://zero5nelsonm-lendr.herokuapp.com/login',
+                `grant_type=password&username=${data.username}&password=${data.password}`, {
+                    headers: {
+                        //btoa is converting our client/id secret to base 64 - required for oath2
+                        Authorization: `Basic ${btoa('waZnYSi644XEABsBiNX9gcf8:NGyHSSzpj3rJaNSD9eFK98F')}`,
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    data: { username: data.username, password: data.password }
+
+                })
             .then(response => {
                 console.log(response);
                 localStorage.setItem('token', response.data.payload)
                 props.history.push('/dashboard');
             })
             .catch(err => {
-                console.log("this is an error", error);
+                console.log("this is an error", err);
+
                 setError(err.response.data.message)
             })
 

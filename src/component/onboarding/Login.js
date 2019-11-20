@@ -65,13 +65,14 @@ const Login = (props) => {
     // console.log('hi there')
     // axiosWithAuth()
     axios
-      .post('https://zero5nelsonm-lendr.herokuapp.com/login', 'grant_type=password&username=${this.state.username}&password=${this.state.password}', {
-        headers: {
-          //btoa is converting our client/id secret to base 64 - required for oath2
-          Authorization: `Basic ${btoa('waZnYSi644XEABsBiNX9gcf8:NGyHSSzpj3rJaNSD9eFK98F')}`,
-          'Content-Type': 'application/x-www-form-urlencoded'
-        }
-      })
+      .post('https://zero5nelsonm-lendr.herokuapp.com/login',
+        'grant_type=password&username=${this.state.username}&password=${this.state.password}', {
+          headers: {
+            //btoa is converting our client/id secret to base 64 - required for oath2
+            Authorization: `Basic ${btoa('waZnYSi644XEABsBiNX9gcf8:NGyHSSzpj3rJaNSD9eFK98F')}`,
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        })
       .then(response => {
         console.log(response);
         localStorage.setItem('token', response.data.payload)

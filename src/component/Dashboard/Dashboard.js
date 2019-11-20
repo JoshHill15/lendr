@@ -22,7 +22,7 @@ function Dashboard(props) {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/items")
+      .get("https://zero5nelsonm-lendr.herokuapp.com/items/items")
       .then(res => setItem(res.data))
       .catch(err => console.log(`HOLD ON `, err));
   }, []);
@@ -38,8 +38,8 @@ function Dashboard(props) {
             {item === undefined ? (
               <p>Add item to continue...</p>
             ) : (
-              item.map(i => <Items key={i.id} item={i} />)
-            )}
+                item.map(i => <Items key={i.id} item={i} />)
+              )}
           </ItemContainer>
         </BigC>
       </section>

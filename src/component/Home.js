@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import splashlogo from "../Images/flame-8.png";
 import { Route } from "react-router-dom";
-import Login from "./onboarding/Login";
+import Login2 from "./onboarding/Login2";
 
 function Home(props) {
   const Splash = styled.section`
@@ -56,7 +56,7 @@ function Home(props) {
         <IMG alt="handshake logo" src={splashlogo} />
       </LogoContainer>
       <LoginContainer>
-        <Route path="/" render={props => <Login {...props} />} />
+        <Route path="/" render={props => <Login2 {...props} />} />
         <Button onClick={routeToSignUp}>Sign Up</Button>
       </LoginContainer>
     </Splash>
