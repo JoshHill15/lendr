@@ -55,6 +55,8 @@ const TopBar = props => {
   `;
 
   let imgBounce = useRef(null);
+  let logo = useRef(null);
+  let signOut = useRef(null);
   function bounce() {
     gsap.to(imgBounce, 1, {
       duration: 2.5,
@@ -67,10 +69,43 @@ const TopBar = props => {
       scale: 1
     });
   }
+
+  function bounce2() {
+    gsap.to(logo, 1, {
+      duration: 2.5,
+      scale: 1.3,
+      ease: "bounce.out"
+    });
+  }
+  function scaleDown2() {
+    gsap.to(logo, 1, {
+      scale: 1
+    });
+  }
+
+  function bounce3() {
+    gsap.to(signOut, 1, {
+      duration: 2.5,
+      scale: 1.2,
+      ease: "bounce.out"
+    });
+  }
+  function scaleDown3() {
+    gsap.to(signOut, 1, {
+      scale: 1
+    });
+  }
+
   return (
     <TopContainer>
       <LogoContainer>
-        <LogoImg src={dashboardlogo} alt="Lendr dashboard logo" />
+        <LogoImg
+          ref={e => (logo = e)}
+          onMouseEnter={bounce2}
+          onMouseLeave={scaleDown2}
+          src={dashboardlogo}
+          alt="Lendr dashboard logo"
+        />
         <p>User dashboard</p>
       </LogoContainer>
       <ButtonContainer>
@@ -86,7 +121,13 @@ const TopBar = props => {
           alt="notification icon"
         />
         <Img src="https://source.unsplash.com/random" alt="profile img" />
-        <Button>Sign Out</Button>
+        <Button
+          ref={e => (signOut = e)}
+          onMouseEnter={bounce3}
+          onMouseLeave={scaleDown3}
+        >
+          Sign Out
+        </Button>
       </ButtonContainer>
     </TopContainer>
   );

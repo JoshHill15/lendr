@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import styled from "styled-components";
 import "../../App.css";
 
 const validate = ({ username, password }) => {
+  // const [username, setUsername] = useState([])
   const errors = {};
 
   if (!username) {

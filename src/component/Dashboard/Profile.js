@@ -9,7 +9,6 @@ import setting from "../../Images/settings.png";
 const Profile = () => {
   const Dash = styled.div`
     width: 60px;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     background: rgba(0, 0, 0, 0.8);
@@ -19,7 +18,7 @@ const Profile = () => {
   const Img = styled.img`
     width: 40px;
     height: auto;
-    margin-top: 10px;
+    margin-top: 20px;
     padding-bottom: 10px;
     border-bottom: 1px solid red;
     &:hover {

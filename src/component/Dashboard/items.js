@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import "../../App.css";
 
 function Items(props) {
   const {
@@ -32,10 +33,13 @@ function Items(props) {
     width: 100%;
     margin: 0.5%;
     padding: 1%;
+    background: rgba(153, 50, 204, 0.4);
+    border-radius: 7px;
+    color: white;
   `;
   const IMG = styled.img`
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     border-radius: 100%;
   `;
   const Edit = styled.button`

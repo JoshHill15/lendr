@@ -19,7 +19,13 @@ function Dashboard(props) {
     display: flex;
     width: 100%;
     flex-direction: column;
-    margin: 1% 0.5%;
+    padding: 1% 0.5%;
+    background: rgb(63, 94, 251);
+    background: linear-gradient(
+      90deg,
+      rgba(63, 94, 251, 1) 32%,
+      rgba(70, 250, 252, 1) 100%
+    );
   `;
   const ButtonContainer = styled.div`
     display: flex;
@@ -29,13 +35,16 @@ function Dashboard(props) {
 
   const ItemCards = styled.div`
     display: flex;
-    width: 100%;
-    margin-top: 1%;
-    padding: 2%;
-    border: 1px solid black;
     flex-direction: column;
     justify-content: center;
+    width: 100%;
+    height: 100vh;
+    margin-top: 1%;
+    padding: 2%;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 7px;
     box-shadow: 10px 10px 28px -12px rgba(0, 0, 0, 0.75);
+    position: relative;
   `;
 
   const Button = styled.button`

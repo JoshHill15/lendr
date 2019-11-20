@@ -68,12 +68,41 @@ const AddItems = () => {
   useEffect(() => {
     gsap.to(FormRef, {
       duration: 3,
-      scale: 1.3,
+      scale: 1.2,
       ease: "bounce",
       ease: "back"
     });
   }, []);
 
+  function bounce() {
+    gsap.to(addItem, 1, {
+      duration: 2.5,
+      scale: 1.2,
+      ease: "bounce.out"
+    });
+  }
+
+  function scaleDown() {
+    gsap.to(addItem, 1, {
+      scale: 1
+    });
+  }
+
+  function bounce2() {
+    gsap.to(reset, 1, {
+      duration: 2.5,
+      scale: 1.2,
+      ease: "bounce.out"
+    });
+  }
+
+  function scaleDown2() {
+    gsap.to(reset, 1, {
+      scale: 1
+    });
+  }
+  let reset = useRef(null);
+  let addItem = useRef(null);
   let FormRef = useRef(null);
   return (
     <>
@@ -128,8 +157,22 @@ const AddItems = () => {
                       name="dueDate"
                       component="span"
                     />
-                    <Button type="submit">Add Item</Button>
-                    <Button type="reset">Reset</Button>
+                    <Button
+                      onMouseEnter={bounce}
+                      onMouseLeave={scaleDown}
+                      ref={e => (addItem = e)}
+                      type="submit"
+                    >
+                      Add Item
+                    </Button>
+                    <Button
+                      onMouseEnter={bounce2}
+                      onMouseLeave={scaleDown2}
+                      ref={e => (reset = e)}
+                      type="reset"
+                    >
+                      Reset
+                    </Button>
                   </Form>
                 </SignUpContainer>
               </LargeContainer>
