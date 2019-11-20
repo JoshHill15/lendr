@@ -6,6 +6,7 @@ import "../../App.css";
 // import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 const validate = ({ username, password }) => {
+  // const [username, setUsername] = useState([])
   const errors = {};
 
   if (!username) {

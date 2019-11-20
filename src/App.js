@@ -11,7 +11,6 @@ import AddItems from "./component/Dashboard/AddItems";
 function App() {
   return (
     <div className="App">
-      <Route path="/" render={props => <Header {...props} />} />
       <Router>
         <Switch>
           <Route exact path="/" render={props => <Home {...props} />} />

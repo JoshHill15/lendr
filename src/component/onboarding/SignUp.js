@@ -5,6 +5,7 @@ import styled from "styled-components";
 import "../../App.css";
 import { gsap } from "gsap/all";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
+import Header from "../Header";
 
 const validate = ({ username, email, password, name, checkPassword }) => {
   const errors = {};
@@ -109,6 +110,8 @@ const OnBoarding = (props) => {
   }, []);
 
   return (
+    <>
+    <Header />
     <Formik
       onSubmit={handleSubmit}
       initialValues={{
@@ -178,6 +181,84 @@ const OnBoarding = (props) => {
         );
       }}
     />
+</>
+//     <>
+//       <Header />
+//       <Formik
+//         initialValues={{
+//           username: "",
+//           email: "",
+//           password: "",
+//           name: "",
+//           checkPassword: ""
+//         }}
+//         validate={validate}
+//         render={props => {
+//           return (
+//             <Container>
+//               <SignUpContainer
+//                 ref={element => {
+//                   FormElement = element;
+//                 }}
+//               >
+//                 <h3>Sign Up</h3>
+//                 <Form>
+//                   <Field
+//                     name="name"
+//                     type="text"
+//                     placeholder="Enter Your Name"
+//                   />
+//                   <ErrorMessage className="error" name="name" component="div" />
+
+//                   <Field
+//                     name="username"
+//                     type="text"
+//                     placeholder="Enter Username"
+//                   />
+//                   <ErrorMessage
+//                     className="error"
+//                     name="username"
+//                     component="div"
+//                   />
+
+//                   <Field name="email" type="email" placeholder="Enter Email" />
+//                   <ErrorMessage
+//                     className="error"
+//                     name="email"
+//                     component="div"
+//                   />
+
+//                   <Field
+//                     name="password"
+//                     type="password"
+//                     placeholder="Enter password"
+//                   />
+//                   <ErrorMessage
+//                     className="error"
+//                     name="password"
+//                     component="div"
+//                   />
+
+//                   <Field
+//                     name="checkPassword"
+//                     type="password"
+//                     placeholder="Check password"
+//                   />
+//                   <ErrorMessage
+//                     className="error"
+//                     name="checkPassword"
+//                     component="div"
+//                   />
+//                   <br />
+//                   <Button type="submit">Sign Up</Button>
+//                   <Button type="reset">Reset</Button>
+//                 </Form>
+//               </SignUpContainer>
+//             </Container>
+//           );
+//         }}
+//       />
+//     </>
   );
 }
 
