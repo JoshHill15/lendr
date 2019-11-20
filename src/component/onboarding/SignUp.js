@@ -1,8 +1,10 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import axios from "axios";
 import styled from "styled-components";
 import "../../App.css";
 import { gsap } from "gsap/all";
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 const validate = ({ username, email, password, name, checkPassword }) => {
   const errors = {};
@@ -33,7 +35,34 @@ const validate = ({ username, email, password, name, checkPassword }) => {
   return errors;
 };
 
-function OnBoarding() {
+const OnBoarding = (props) => {
+  const [newUser, setNewUser] = useState({
+    username: '',
+    password: '',
+    email: ''
+
+  })
+  const handleInput = e => {
+    setNewUser({
+      ...newUser,
+      [e.target.name]: e.target.value,
+    })
+  }
+  const handleSubmit = e => {
+    e.preventDefault();
+    axios
+      .post('/createnewuser', {
+        username: newUser.name,
+        email: newUser.email,
+        password: newUser.password
+      })
+      .then(response => {
+        props.history.push('/dasboard')
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }
   let FormElement = useRef(null);
 
   const Container = styled.section`
