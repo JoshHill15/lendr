@@ -9,6 +9,7 @@ const Footer = () => {
     color: white;
     background: rgba(0, 0, 0, 0.8);
     padding: 1%;
+    height: 60px;
   `;
   return (
     <Footer>

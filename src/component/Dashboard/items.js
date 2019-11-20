@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import "../../App.css";
 
 function Items(props) {
   const {
@@ -23,7 +24,7 @@ function Items(props) {
     Lend = <p>Lent item:</p>;
   }
 
-  const Container = styled.div`
+  const Container = styled.form`
     display: flex;
     justify-content: space-evenly;
     width: 100%;
@@ -32,10 +33,13 @@ function Items(props) {
     width: 100%;
     margin: 0.5%;
     padding: 1%;
+    background: rgba(153, 50, 204, 0.4);
+    border-radius: 7px;
+    color: white;
   `;
   const IMG = styled.img`
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     border-radius: 100%;
   `;
   const Edit = styled.button`
@@ -60,14 +64,14 @@ function Items(props) {
   `;
 
   return (
-    <Container>
+    <Container id="foo">
       {Borrowed}
       {Lend}
       <IMG src={image} alt="img" />
-      <p>{username}</p>
-      <p>{item}</p>
-      <p>{borrowDate}</p>
-      <p>{dueDate}</p>
+      <p contenteditable="true">{username}</p>
+      <p contenteditable="true">{item}</p>
+      <p contenteditable="true">{borrowDate}</p>
+      <p contenteditable="true">{dueDate}</p>
       <Edit>edit</Edit>
       <Delete>delete</Delete>
     </Container>
