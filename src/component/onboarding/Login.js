@@ -77,9 +77,9 @@ const Login = (props) => {
         localStorage.setItem('token', response.data.payload)
         props.history.push('/dashboard');
       })
-      .catch(err => {
-        console.log("this is an error", error);
-        setError(err.response.data.message)
+      .catch(error => {
+        console.log("this is an error", error.response);
+        setError(error.response.data.message)
       })
   }
 

@@ -49,18 +49,19 @@ const OnBoarding = (props) => {
     })
   }
   const handleSubmit = e => {
-    e.preventDefault();
+    // e.preventDefault();
     axios
-      .post('/createnewuser', {
+      .post('https://zero5nelsonm-lendr.herokuapp.com/createnewuser', {
         username: newUser.name,
         email: newUser.email,
         password: newUser.password
       })
       .then(response => {
+        console.log(response)
         props.history.push('/dasboard')
       })
       .catch(error => {
-        console.log(error)
+        console.log(error.response)
       })
   }
   let FormElement = useRef(null);
@@ -109,6 +110,7 @@ const OnBoarding = (props) => {
 
   return (
     <Formik
+      onSubmit={handleSubmit}
       initialValues={{
         username: "",
         email: "",
@@ -127,13 +129,14 @@ const OnBoarding = (props) => {
             >
               <h3>Sign Up</h3>
               <Form>
-                <Field name="name" type="text" placeholder="Enter Your Name" />
+                <Field name="name" type="text" placeholder="Enter Your Name" onchange={handleInput} />
                 <ErrorMessage className="error" name="name" component="div" />
 
                 <Field
                   name="username"
                   type="text"
                   placeholder="Enter Username"
+                  onchange={handleInput}
                 />
                 <ErrorMessage
                   className="error"
@@ -141,13 +144,14 @@ const OnBoarding = (props) => {
                   component="div"
                 />
 
-                <Field name="email" type="email" placeholder="Enter Email" />
+                <Field name="email" type="email" placeholder="Enter Email" onchange={handleInput} />
                 <ErrorMessage className="error" name="email" component="div" />
 
                 <Field
                   name="password"
                   type="password"
                   placeholder="Enter password"
+                  onchange={handleInput}
                 />
                 <ErrorMessage
                   className="error"
