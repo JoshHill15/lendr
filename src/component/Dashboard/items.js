@@ -68,10 +68,10 @@ function Items(props) {
       {Borrowed}
       {Lend}
       <IMG src={image} alt="img" />
-      <p>{username}</p>
-      <p>{item}</p>
-      <p>{borrowDate}</p>
-      <p>{dueDate}</p>
+      <p contenteditable="true">{username}</p>
+      <p contenteditable="true">{item}</p>
+      <p contenteditable="true">{borrowDate}</p>
+      <p contenteditable="true">{dueDate}</p>
       <Edit>edit</Edit>
       <Delete>delete</Delete>
     </Container>
