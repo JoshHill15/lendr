@@ -3,6 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import styled from "styled-components";
 import "../../App.js";
 import { gsap } from "gsap";
+import Header from "../Header.js";
 const validate = ({ name, item, borrowDate, dueDate }) => {
   const errors = {};
 
@@ -75,65 +76,68 @@ const AddItems = () => {
 
   let FormRef = useRef(null);
   return (
-    <Formik
-      initialValues={{
-        name: "",
-        item: "",
-        borrowDate: "",
-        dueDate: ""
-      }}
-      validate={validate}
-      render={props => {
-        return (
-          <Splash>
-            <LargeContainer>
-              <SignUpContainer ref={e => (FormRef = e)}>
-                <Form>
-                  <Field
-                    name="name"
-                    type="text"
-                    placeholder="Borrower / Lender"
-                  />
-                  <ErrorMessage
-                    className="error"
-                    name="name"
-                    component="span"
-                  />
-                  <Field name="item" type="text" placeholder="Enter Item" />
-                  <ErrorMessage
-                    className="error"
-                    name="item"
-                    component="span"
-                  />
-                  <label name="lend">lend:</label>
-                  <Field name="lend" type="checkbox" />
-                  <label name="borrow">borrow:</label>
-                  <Field name="borrow" type="checkbox" />
-                  <Field
-                    name="borrowDate"
-                    type="date"
-                    placeholder="Borrow Date"
-                  />
-                  <ErrorMessage
-                    className="error"
-                    name="borrowDate"
-                    component="span"
-                  />
-                  <Field name="dueDate" type="date" placeholder="Due Date" />
-                  <ErrorMessage
-                    className="error"
-                    name="dueDate"
-                    component="span"
-                  />
-                  <Button type="submit">Add Item</Button>
-                  <Button type="reset">Reset</Button>
-                </Form>
-              </SignUpContainer>
-            </LargeContainer>
-          </Splash>
-        );
-      }}
-    />
+    <>
+      <Header />
+      <Formik
+        initialValues={{
+          name: "",
+          item: "",
+          borrowDate: "",
+          dueDate: ""
+        }}
+        validate={validate}
+        render={props => {
+          return (
+            <Splash>
+              <LargeContainer>
+                <SignUpContainer ref={e => (FormRef = e)}>
+                  <Form>
+                    <Field
+                      name="name"
+                      type="text"
+                      placeholder="Borrower / Lender"
+                    />
+                    <ErrorMessage
+                      className="error"
+                      name="name"
+                      component="span"
+                    />
+                    <Field name="item" type="text" placeholder="Enter Item" />
+                    <ErrorMessage
+                      className="error"
+                      name="item"
+                      component="span"
+                    />
+                    <label name="lend">lend:</label>
+                    <Field name="lend" type="checkbox" />
+                    <label name="borrow">borrow:</label>
+                    <Field name="borrow" type="checkbox" />
+                    <Field
+                      name="borrowDate"
+                      type="date"
+                      placeholder="Borrow Date"
+                    />
+                    <ErrorMessage
+                      className="error"
+                      name="borrowDate"
+                      component="span"
+                    />
+                    <Field name="dueDate" type="date" placeholder="Due Date" />
+                    <ErrorMessage
+                      className="error"
+                      name="dueDate"
+                      component="span"
+                    />
+                    <Button type="submit">Add Item</Button>
+                    <Button type="reset">Reset</Button>
+                  </Form>
+                </SignUpContainer>
+              </LargeContainer>
+            </Splash>
+          );
+        }}
+      />
+    </>
   );
 };
 
