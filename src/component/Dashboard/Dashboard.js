@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Route } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
@@ -6,7 +6,6 @@ import Items from "./items";
 import Profile from "./Profile";
 import { tsConstructorType } from "@babel/types";
 import TopBar from "./TopBar";
-import { gsap } from "gsap/all";
 
 function Dashboard(props) {
   const [item, setItem] = useState();
@@ -38,13 +37,12 @@ function Dashboard(props) {
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     margin-top: 1%;
     padding: 2%;
     background: rgba(0, 0, 0, 0.4);
     border-radius: 7px;
     box-shadow: 10px 10px 28px -12px rgba(0, 0, 0, 0.75);
-    position: relative;
   `;
 
   const Button = styled.button`
