@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
+import "../../App.css";
 
 const Login2 = props => {
   const [error, setError] = useState();
@@ -45,20 +46,6 @@ const Login2 = props => {
   console.log(data);
   //============= styled components =================//
 
-  const LoginC = styled.div`
-  height: 300px;
-  width: 360px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content center;
-  background: rgba(153,50,204,0.5);
-  opacity: .8;
-  box-shadow: 10px 10px 28px -12px rgba(0, 0, 0, 0.75);
-  margin-bottom:3%;
-  border-radius:4%;
-`;
-
   const Button = styled.button`
     border: none;
     border-radius: 4px;
@@ -68,7 +55,7 @@ const Login2 = props => {
   `;
 
   return (
-    <LoginC>
+    <div className="login-container">
       <form onSubmit={handleSubmit}>
         <h2>Login</h2>
         <div className="login">
@@ -87,12 +74,10 @@ const Login2 = props => {
             value={data.password}
             onChange={handleChange}
           />
-          <Button className="button" type="submit">
-            Sign In
-          </Button>
+          <Button type="submit">Sign In</Button>
         </div>
       </form>
-    </LoginC>
+    </div>
   );
 };
 export default Login2;

@@ -27,7 +27,7 @@ const OnBoarding = props => {
       })
       .then(response => {
         console.log(response);
-        props.history.push("/dasboard");
+        props.history.push("/dashboard");
       })
       .catch(error => {
         console.log(error.response);
@@ -47,31 +47,6 @@ const OnBoarding = props => {
   }, []);
 
   // ========== STYLED COMPONENTS ========== //
-  const Container = styled.section`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgb(63, 94, 251);
-    background: linear-gradient(
-      90deg,
-      rgba(63, 94, 251, 1) 32%,
-      rgba(70, 250, 252, 1) 100%
-    );
-    height: 88vh;
-  `;
-
-  const SignUpContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    padding: 3%;
-    border-radius: 7px;
-    background: rgba(153, 50, 204, 0.7);
-    box-shadow: 10px 10px 28px -12px rgba(0, 0, 0, 0.75);
-    width: 25%;
-    height: auto;
-  `;
 
   const Button = styled.button`
     border: none;
@@ -84,8 +59,9 @@ const OnBoarding = props => {
   return (
     <>
       <Header />
-      <Container>
-        <SignUpContainer
+      <section className="splash">
+        <div
+          className="sign-up-container"
           ref={element => {
             FormElement = element;
           }}
@@ -120,8 +96,8 @@ const OnBoarding = props => {
               </Button>
             </div>
           </form>
-        </SignUpContainer>
-      </Container>
+        </div>
+      </section>
     </>
   );
 };
