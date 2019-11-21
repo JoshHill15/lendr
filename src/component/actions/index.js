@@ -13,7 +13,7 @@ export const DELETE_ITEM_FAILURE = "DELETE_ITEM_FAILURE";
 
 export const fetchItem = () => dispatch => {
   dispatch({ type: FETCH_ITEM_START });
-
+  //commit
   axios
     .get("https://dog.ceo/api/breeds/image/random/100")
     .then(res => dispatch({ type: FETCH_ITEM_SUCCESS, payload: res.data }))
