@@ -4,7 +4,7 @@ import axios from "axios";
 import styled from "styled-components";
 import "../../App.css";
 import { gsap } from "gsap/all";
-import { axiosWithAuth } from "../utils/axiosWithAuth";
+// import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 const validate = ({ username, email, password, name, checkPassword }) => {
   const errors = {};
