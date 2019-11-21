@@ -59,12 +59,11 @@ function Items(props) {
 
   return (
     <Container id="foo">
-      <p contenteditable="true">{name}</p>
-      <p contenteditable="true">{itemname}</p>
-      <p contenteditable="true">{itemdescription}</p>
-      <p contenteditable="true">{lendnotes}</p>
-      <p contenteditable="true">{lentdate}</p>
-      <p contenteditable="true">{lentto}</p>
+      <p>Item: {itemname}</p>
+      <p>Desc: {itemdescription}</p>
+      <p>Notes: {lendnotes}</p>
+      <p>Date: {lentdate}</p>
+      <p>To:{lentto}</p>
       <Edit>edit</Edit>
       <Delete>delete</Delete>
     </Container>

@@ -62,7 +62,7 @@ function Dashboard(props) {
 
   useEffect(() => {
     axios
-      .get("https://zero5nelsonm-lendr.herokuapp.com/items/items")
+      .get("http://localhost:5000/api/items")
       .then(res => setItem(res.data))
       .catch(err => console.log(`HOLD ON `, err));
   }, []);
@@ -70,7 +70,7 @@ function Dashboard(props) {
   return (
     <>
       <section>
-        <TopBar props={props} />
+        <TopBar item={item} />
         <BigC>
           <Profile />
           <ItemContainer>

@@ -109,7 +109,7 @@ const TopBar = props => {
         <p>User dashboard</p>
       </LogoContainer>
       <ButtonContainer>
-        <p>NAME</p>
+        <p>name</p>
         {/* <Button onClick={routeToAddItems}>Add Item</Button> */}
         <Img
           onMouseLeave={scaleDown}
