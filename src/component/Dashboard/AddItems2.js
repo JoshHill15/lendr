@@ -35,6 +35,7 @@ const AddItems2 = () => {
   };
   const handleSubmit = e => {
     e.preventDefault();
+    e.validation();
     addNewItem(item);
     setItem({
       itemname: "",
@@ -44,6 +45,15 @@ const AddItems2 = () => {
       lendnotes: ""
     });
   };
+
+  // ========== VALIDATION ========== //
+
+  // const validation = () =>{
+  //     if ({itemname === null ||  itemname === ''} {
+  //         alert("Name can not be blank!!")
+  //     })
+  // }
+
   // ========== GREENSOCK ========== //
   useEffect(() => {
     gsap.to(FormRef, {

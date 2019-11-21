@@ -11,6 +11,7 @@ function Dashboard(props) {
 
   const BigC = styled.div`
     display: flex;
+    height: 100vh;
   `;
 
   const ItemContainer = styled.div`
@@ -36,7 +37,6 @@ function Dashboard(props) {
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    height: 100%;
     margin-top: 1%;
     padding: 2%;
     background: rgba(0, 0, 0, 0.4);
