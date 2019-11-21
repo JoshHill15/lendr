@@ -4,25 +4,23 @@ import "../../App.css";
 
 function Items(props) {
   const {
-    image,
-    item,
-    username,
+    itemname,
+    itemdescription,
     name,
-    borrowDate,
-    dueDate,
-    borrowed,
-    lend
+    lentto,
+    lentdate,
+    lendnotes
   } = props.item;
 
-  let Borrowed;
-  if (borrowed === true) {
-    Borrowed = <p>Borrowed item:</p>;
-  }
+  // let Borrowed;
+  // if (borrowed === true) {
+  //   Borrowed = <p>Borrowed item:</p>;
+  // }
 
-  let Lend;
-  if (lend === true) {
-    Lend = <p>Lent item:</p>;
-  }
+  // let Lend;
+  // if (lend === true) {
+  //   Lend = <p>Lent item:</p>;
+  // }
 
   const Container = styled.form`
     display: flex;
@@ -37,11 +35,7 @@ function Items(props) {
     border-radius: 7px;
     color: white;
   `;
-  const IMG = styled.img`
-    width: 50px;
-    height: 50px;
-    border-radius: 100%;
-  `;
+
   const Edit = styled.button`
     background: green;
     color: white;
@@ -65,13 +59,12 @@ function Items(props) {
 
   return (
     <Container id="foo">
-      {Borrowed}
-      {Lend}
-      <IMG src={image} alt="img" />
-      <p contenteditable="true">{username}</p>
-      <p contenteditable="true">{item}</p>
-      <p contenteditable="true">{borrowDate}</p>
-      <p contenteditable="true">{dueDate}</p>
+      <p contenteditable="true">{name}</p>
+      <p contenteditable="true">{itemname}</p>
+      <p contenteditable="true">{itemdescription}</p>
+      <p contenteditable="true">{lendnotes}</p>
+      <p contenteditable="true">{lentdate}</p>
+      <p contenteditable="true">{lentto}</p>
       <Edit>edit</Edit>
       <Delete>delete</Delete>
     </Container>
