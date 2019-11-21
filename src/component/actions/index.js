@@ -15,7 +15,7 @@ export const fetchItem = () => dispatch => {
   dispatch({ type: FETCH_ITEM_START });
 
   axios
-    .get("")
+    .get("https://dog.ceo/api/breeds/image/random/100")
     .then(res => dispatch({ type: FETCH_ITEM_SUCCESS, payload: res.data }))
     .catch(err =>
       dispatch({ type: FETCH_ITEM_FAILURE, payload: err.response })
