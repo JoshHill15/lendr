@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Home from "./component/Home";
 import Footer from "./component/Footer";
-import SignUp2 from "./component/onboarding/SignUp2";
+import SignUp from "./component/onboarding/SignUp";
 import Dashboard from "./component/Dashboard/Dashboard";
-import AddItems2 from "./component/Dashboard/AddItems2";
+import AddItems from "./component/Dashboard/AddItems";
 
 function App() {
   return (
@@ -13,9 +13,9 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" render={props => <Home {...props} />} />
-          <Route path="/signup" component={SignUp2} />
+          <Route path="/signup" component={SignUp} />
           <Route path="/dashboard" render={props => <Dashboard {...props} />} />
-          <Route path="/additems" render={props => <AddItems2 {...props} />} />
+          <Route path="/additems" render={props => <AddItems {...props} />} />
         </Switch>
       </Router>
       <Footer />
