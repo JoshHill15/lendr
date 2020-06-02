@@ -3,6 +3,8 @@ import axios from "axios";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import styled from "styled-components";
 import "../../App.css";
+import { useHistory } from "react-router-dom";
+
 // import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 const validate = ({ username, password }) => {
@@ -47,7 +49,7 @@ const Button = styled.button`
 `;
 
 const Login = (props) => {
-
+  const History = useHistory()
   const [error, setError] = useState();
   const [data, setData] = useState({
     username: '',
@@ -68,12 +70,12 @@ const Login = (props) => {
     axios
       .post('https://zero5nelsonm-lendr.herokuapp.com/login',
         'grant_type=password&username=${this.state.username}&password=${this.state.password}', {
-          headers: {
-            //btoa is converting our client/id secret to base 64 - required for oath2
-            Authorization: `Basic ${btoa('waZnYSi644XEABsBiNX9gcf8:NGyHSSzpj3rJaNSD9eFK98F')}`,
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        })
+        headers: {
+          //btoa is converting our client/id secret to base 64 - required for oath2
+          Authorization: `Basic ${btoa('waZnYSi644XEABsBiNX9gcf8:NGyHSSzpj3rJaNSD9eFK98F')}`,
+          'Content-Type': 'application/x-www-form-urlencoded'
+        }
+      })
       .then(response => {
         console.log(response);
         localStorage.setItem('token', response.data.payload)
@@ -83,6 +85,10 @@ const Login = (props) => {
         console.log("this is an error", error.response);
         setError(error.response.data.message)
       })
+  }
+
+  function pushToDash() {
+    History.push("/dashboard")
   }
 
   return (
@@ -99,7 +105,7 @@ const Login = (props) => {
               <Field name="password" type="text" placeholder="Enter Password" onchange={handleInput} />
               <ErrorMessage className="error" name="password" component="div" />
               <br />
-              <Button type="submit">Login</Button>
+              <Button onClick={pushToDash} type="submit">Login</Button>
             </Form>
           </LoginC>
         );

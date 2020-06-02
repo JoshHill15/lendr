@@ -4,6 +4,8 @@ import styled from "styled-components";
 import "../../App.js";
 import { gsap } from "gsap";
 import Header from "../Header.js";
+import { useHistory } from "react-router-dom"
+
 const validate = ({ name, item, borrowDate, dueDate }) => {
   const errors = {};
 
@@ -65,6 +67,11 @@ const LargeContainer = styled.div`
 `;
 
 const AddItems = () => {
+  History = useHistory()
+  function routeToDash() {
+    History.push("/dashboard")
+  }
+
   useEffect(() => {
     gsap.to(FormRef, {
       duration: 3,
@@ -162,6 +169,7 @@ const AddItems = () => {
                       onMouseLeave={scaleDown}
                       ref={e => (addItem = e)}
                       type="submit"
+                      onClick={routeToDash}
                     >
                       Add Item
                     </Button>

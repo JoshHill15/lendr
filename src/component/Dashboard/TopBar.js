@@ -3,8 +3,16 @@ import styled from "styled-components";
 import alert from "../../Images/alert.png";
 import dashboardlogo from "../../Images/dashlogo.png";
 import { gsap } from "gsap/all";
+import { useHistory } from "react-router-dom"
 
 const TopBar = props => {
+  History = useHistory()
+
+  function routeToHome() {
+    History.push("/")
+  }
+
+
   const TopContainer = styled.div`
     width: 100%;
     height: 60px;
@@ -105,6 +113,7 @@ const TopBar = props => {
           onMouseLeave={scaleDown2}
           src={dashboardlogo}
           alt="Lendr dashboard logo"
+          onClick={routeToHome}
         />
         <p>User dashboard</p>
       </LogoContainer>
@@ -125,6 +134,7 @@ const TopBar = props => {
           ref={e => (signOut = e)}
           onMouseEnter={bounce3}
           onMouseLeave={scaleDown3}
+          onClick={routeToHome}
         >
           Sign Out
         </Button>
